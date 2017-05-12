@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.Scanner;
 
 public class Version2 {
 		
@@ -67,11 +66,13 @@ public class Version2 {
 			System.out.println("Medicine " +(i+1) +" Name: "+m.get(i).getMedName());
 			System.out.println("Medicine " +(i+1) +" Price: "+m.get(i).getPrice());
 			System.out.println("Medicine " +(i+1) +" Info: "+m.get(i).getMedInfo());
-			totalPrice += m.get(i).getPrice();
+			totalPrice += m.get(i).toplam(m);
 			System.out.println("---------");
 		}
 		System.out.println("Total Price: " +totalPrice+" TL");
 		System.out.println("---------------------------");
+		
+		
 	}
 	
 	

@@ -1,7 +1,7 @@
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Medicine {
-	
 	public void setMedName(String _medName){
 		medicineName = _medName;
 	}
@@ -28,6 +28,14 @@ public class Medicine {
 		return medicineID;
 	}	
 	
+	public double toplam (ArrayList <Medicine> m){
+		double t=0;	
+		for (int c=0; c<m.size();c++){
+			t += m.get(c).getPrice();	
+			}
+		return t;
+		}
+	
 	public boolean checkMedName(){
 		if(medicineName.length()>1 && medicineName.length()<16){
 			char[] chars = medicineName.toCharArray();
@@ -51,3 +59,5 @@ public class Medicine {
 	private	double price;
 	private	String medicineID;
 }
+
+

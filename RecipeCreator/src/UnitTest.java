@@ -1,21 +1,33 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
+
 
 public class UnitTest {
 
 	Patient patient = new Patient();
 	Medicine medicine = new Medicine();
+	Medicine medicine2 = new Medicine();
+	ArrayList<Medicine> m = new ArrayList<Medicine>();
+	
+	
 	
 	@Before
 	public void setUp() throws Exception {
 		patient.setName("Fatih");
-		patient.setSurname("Coþkun");
+		patient.setSurname("CoÃ¾kun");
 		patient.setPatientID(1258779963);
 		medicine.setMedName("Aspirin");
 		medicine.setMedInfo("Once a day");
 		medicine.setPrice(12.57);
+		medicine2.setMedName("Parol");
+		medicine2.setMedInfo("For headache");
+		medicine2.setPrice(10.10);
+		m.add(medicine);
+		m.add(medicine2);
 	}
 	@Test
 	public void test() {
@@ -37,7 +49,7 @@ public class UnitTest {
 	}
 	@Test
 	public void test5() {
-		patient.setName("Çað,a,ta,,y");
+		patient.setName("Ã‡aÃ°,a,ta,,y");
 		assertEquals(false, patient.checkName());
 	}
 	@Test
@@ -51,17 +63,17 @@ public class UnitTest {
 	}
 	@Test
 	public void test8() {
-		patient.setSurname("qwertyuýopðüiþlkjhgfdsazxcvbnmö");
+		patient.setSurname("qwertyuÃ½opÃ°Ã¼iÃ¾lkjhgfdsazxcvbnmÃ¶");
 		assertEquals(false, patient.checkSurname());
 	}
 	@Test
 	public void test9() {
-		patient.setSurname("D,o,ð..a;;n");
+		patient.setSurname("D,o,Ã°..a;;n");
 		assertEquals(false, patient.checkSurname());
 	}
 	@Test
 	public void test10() {
-		assertEquals("Coþkun", patient.getSurname());
+		assertEquals("CoÃ¾kun", patient.getSurname());
 	}
 	@Test
 	public void test11() {
@@ -98,4 +110,9 @@ public class UnitTest {
 	public void test18() {
 		assertEquals(12.57, medicine.getPrice(),0.001);
 	}
+	@Test
+	public void test19(){
+		assertEquals(22.67,medicine.toplam(m),0.001);
+	}
+
 }
